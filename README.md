@@ -21,7 +21,6 @@
 * Run solarcmd in debugger: 
   - (**F5**): Select "Launch Go" first
 
-
 # Configure
 
 ## GOPATH
