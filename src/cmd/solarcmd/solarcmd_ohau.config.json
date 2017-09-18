@@ -1,0 +1,161 @@
+{
+	"Database": {
+		"DbName": "SolarMonitorDb",
+		"DbUser": "root",
+		"DbPassword": "**",
+		"SiteName": "Test system"
+	},
+	"Sensors": [{
+			"Name": "Charge Controller",
+			"Type": "ChargeControllerType",
+			"DbID": 1,
+			"Model": "Tracer4215BN",
+			"Description": "EPSolar Tracer4215BN",
+			"Location": "Solar shed",
+			"Params": {
+				"Tracer": {
+					"SerialDevice": "/dev/ttyXRUSB0"
+				}
+			}
+		},
+
+		{
+			"Name": "Battery Shunt",
+			"Type": "ShuntType",
+			"DbID": 2,
+			"Model": "INA219",
+			"Description": "Controller to battery shunt",
+			"Location": "Solar shed",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x40",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 2
+				},
+				"INA219": {
+					"ShuntResistorMilliOhms": 0.25,
+					"MaxCurrentA": 40,
+					"MaxShuntVoltageV": 0.050,
+					"MaxBusVoltageV": 12,
+					"CurrentResolutionMilliAmps": 10
+				}
+			}
+		},
+		{
+			"Name": "Loads Shunt",
+			"Type": "ShuntType",
+			"DbID": 3,
+			"Model": "INA219",
+			"Description": "Battery to DC loads shunt",
+			"Location": "Solar shed",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x41",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 3
+				},
+				"INA219": {
+					"ShuntResistorMilliOhms": 1.0,
+					"MaxCurrentA": 20,
+					"MaxShuntVoltageV": 0.050,
+					"MaxBusVoltageV": 12,
+					"CurrentResolutionMilliAmps": 1
+				}
+			}
+		},
+
+		{
+			"Name": "Outside Temperature",
+			"Type": "TemperatureType",
+			"DbID": 1,
+			"Model": "HTU21",
+			"Location": "Outside",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x40",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 4
+				}
+			}
+		},
+		{
+			"Name": "Office Temperature",
+			"Type": "TemperatureType",
+			"DbID": 2,
+			"Model": "SHT31",
+			"Location": "Office",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x44",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 5
+				}
+			}
+		},
+		{
+			"Name": "Piano Room Temperature",
+			"Type": "TemperatureType",
+			"DbID": 3,
+			"Model": "HTU21",
+			"Location": "Piano Room",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x40",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 6
+				}
+			}
+		},
+
+		{
+			"Name": "Outside Humidity",
+			"Type": "HumidityType",
+			"DbID": 1,
+			"Model": "HTU21",
+			"Location": "Outside",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x40",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 4
+				}
+			}
+		},
+		{
+			"Name": "Office Humidity",
+			"Type": "HumidityType",
+			"DbID": 2,
+			"Model": "SHT31",
+			"Location": "Office",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x44",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 5
+				}
+			}
+		},
+		{
+			"Name": "Piano Room Humidity",
+			"Type": "HumidityType",
+			"DbID": 3,
+			"Model": "HTU21",
+			"Location": "Piano Room",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x40",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 6
+				}
+			}
+		}
+	]
+}

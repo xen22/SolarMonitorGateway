@@ -1,0 +1,108 @@
+{
+	"Database": {
+		"DbName": "SolarMonitorDb",
+		"DbUser": "root",
+		"DbPassword": "**",
+		"SiteName": "Test system"
+	},
+	"Sensors": [{
+			"Name": "Charge Controller",
+			"Type": "ChargeControllerType",
+			"DbID": 2,
+			"Model": "SimulatedTracer4215BN",
+			"Description": "EPSolar Tracer4215BN",
+			"Location": "Solar shed",
+			"Params": {
+				"Tracer": {
+					"SerialDevice": "/dev/ttyXRUSB0"
+				}
+			}
+		},
+
+		{
+			"Name": "Battery Shunt",
+			"Type": "ShuntType",
+			"DbID": 6,
+			"Model": "INA219",
+			"Description": "Shunt Load (INA219)",
+			"Location": "Solar shed",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x40",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 4
+				},
+				"INA219": {
+					"ShuntResistorMilliOhms": 1.0,
+					"MaxCurrentA": 20,
+					"MaxShuntVoltageV": 0.050,
+					"MaxBusVoltageV": 12,
+					"CurrentResolutionMilliAmps": 1
+				}
+			}
+		},
+
+		{
+			"Name": "Outside Temperature",
+			"Type": "TemperatureType",
+			"DbID": 6,
+			"Model": "HTU21",
+			"Location": "Outside",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x40",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 0
+				}
+			}
+		},
+		{
+			"Name": "Office Temperature",
+			"Type": "TemperatureType",
+			"DbID": 7,
+			"Model": "SHT31",
+			"Location": "Office",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x44",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 1
+				}
+			}
+		},
+
+		{
+			"Name": "Outside Humidity",
+			"Type": "HumidityType",
+			"DbID": 6,
+			"Model": "HTU21",
+			"Location": "Outside",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x40",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 0
+				}
+			}
+		},
+		{
+			"Name": "Office Humidity",
+			"Type": "HumidityType",
+			"DbID": 7,
+			"Model": "SHT31",
+			"Location": "Office",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x44",
+					"MuxAddress": "0x70",
+					"MuxPortNum": 1
+				}
+			}
+		}
+	]
+}

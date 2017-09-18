@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ESCAPE='\033['
+CYAN="${ESCAPE}0;36m"
+NC='\033[0m' # No Color
+
+logdbg() {
+  if [[ -z ${VSCODE_TASK} && -z $JENKINS_URL && "$(uname)" == "Linux" ]]; then
+    echo -e "${CYAN}$1${NC}"
+  else
+    echo "$1"
+  fi 
+}
+
+export -f logdbg

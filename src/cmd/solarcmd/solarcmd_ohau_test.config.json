@@ -1,0 +1,92 @@
+{
+	"Database": {
+		"DbName": "SolarMonitorDb",
+		"DbUser": "root",
+		"DbPassword": "**",
+		"SiteName": "Test system"
+	},
+	"Sensors": [{
+			"Name": "Charge Controller",
+			"Type": "ChargeControllerType",
+			"DbID": 1,
+			"Model": "Tracer4215BN",
+			"Description": "EPSolar Tracer4215BN",
+			"Location": "Solar shed",
+			"Params": {
+				"Tracer": {
+					"SerialDevice": "/dev/ttyXRUSB0"
+				}
+			}
+		},
+
+		{
+			"Name": "Battery Shunt",
+			"Type": "ShuntType",
+			"DbID": 2,
+			"Model": "INA219",
+			"Description": "Controller to battery shunt",
+			"Location": "Solar shed",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x41",
+					"MuxAddress": "0x00",
+					"MuxPortNum": 2
+				},
+				"INA219": {
+					"ShuntResistorMilliOhms": 0.25,
+					"MaxCurrentA": 40,
+					"MaxShuntVoltageV": 0.050,
+					"MaxBusVoltageV": 12,
+					"CurrentResolutionMilliAmps": 10
+				}
+			}
+		},
+		{
+			"Name": "Loads Shunt",
+			"Type": "ShuntType",
+			"DbID": 3,
+			"Model": "INA219",
+			"Description": "Battery to DC loads shunt",
+			"Location": "Solar shed",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x44",
+					"MuxAddress": "0x00",
+					"MuxPortNum": 3
+				},
+				"INA219": {
+					"ShuntResistorMilliOhms": 0.25,
+					"MaxCurrentA": 40,
+					"MaxShuntVoltageV": 0.050,
+					"MaxBusVoltageV": 12,
+					"CurrentResolutionMilliAmps": 10
+				}
+			}
+		},
+		{
+			"Name": "Inverter Shunt",
+			"Type": "ShuntType",
+			"DbID": 4,
+			"Model": "INA219",
+			"Description": "Battery to DC loads shunt",
+			"Location": "Solar shed",
+			"Params": {
+				"I2C": {
+					"BusID": 1,
+					"I2CAddress": "0x45",
+					"MuxAddress": "0x00",
+					"MuxPortNum": 3
+				},
+				"INA219": {
+					"ShuntResistorMilliOhms": 0.25,
+					"MaxCurrentA": 40,
+					"MaxShuntVoltageV": 0.050,
+					"MaxBusVoltageV": 12,
+					"CurrentResolutionMilliAmps": 10
+				}
+			}
+		}
+	]
+}

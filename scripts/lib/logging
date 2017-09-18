@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. $(dirname $0)/lib/loginfo
+. $(dirname $0)/lib/logdbg
+. $(dirname $0)/lib/logerr
+. $(dirname $0)/lib/logwarn

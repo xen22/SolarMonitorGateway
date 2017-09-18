@@ -1,0 +1,1 @@
+This folder contains a list of packages developed by other people which I needed to modify, hence the source code is included here (along with copyright and licence info).   

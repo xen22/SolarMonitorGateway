@@ -1,0 +1,66 @@
+// Format:
+// { "command": "myCommand"
+//   "args": ["myCommandArguments"],
+//   "tasks" : [ 
+//     { "taskName": "myTask",
+//       "args": ["myTaskArguments"],
+//       "suppressTaskName": false,
+//     }
+//   ]
+// }
+//
+// The above will result in the following command:
+//   myCommand myCommandArguments myTaskArguments myTask
+// The task name myTask is always last and can be omitted 
+// with "suppressTaskName": true.
+// 
+// (From: http://stackoverflow.com/a/30419250)
+//
+// Note: VSCode tasks only support running through a single
+//       hence the need to scripts/run_task.sh wrapper around the shell.  
+
+{
+  "version": "0.1.0",
+  "command": "${workspaceRoot}/scripts/run_task.sh",
+  "isShellCommand": true,
+  "showOutput": "always",
+  "suppressTaskName": true,
+  "echoCommand": true,
+  "tasks": [
+    // Note: only build and test tasks can be assigned shortcuts (F7 and F8)
+    // names don't matter - they are hard-coded to build and test
+    {
+      "taskName": "build",
+      "args": [ "./scripts/build_all.sh", "x64" ],
+      "isBuildCommand": false,
+      "isTestCommand": false,
+      "problemMatcher": "$go"
+    },
+    {
+      "taskName": "test",
+      "args": [ "./scripts/run_test_server.sh" ],
+      "isBuildCommand": false,
+      "isTestCommand": true
+    },
+
+    {
+      "taskName": "clean_build",
+      "args": [ "./scripts/build_all.sh", "x64", "-c" ],
+      "isBuildCommand": true,
+      "isTestCommand": false,
+      "problemMatcher": "$go"
+    },
+    {
+      "taskName": "doc",
+      "args": [ "./scripts/generate_docs.sh" ],
+      "isBuildCommand": false,
+      "isTestCommand": false
+    },
+    {
+      "taskName": "integration_tests",
+      "args": [ "./scripts/run_integration_tests.sh" ],
+      "isBuildCommand": false,
+      "isTestCommand": true
+    }
+  ]
+}

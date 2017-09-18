@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ESCAPE='\033['
+YELLOW="${ESCAPE}0;33m"
+NC='\033[0m' # No Color
+
+logwarn() {
+  if [[ -z ${VSCODE_TASK} && -z $JENKINS_URL && "$(uname)" == "Linux" ]]; then
+    echo -e "${YELLOW}Warning: $1${NC}"
+  else
+    echo "Warning: $1"
+  fi 
+}
+
+export -f logwarn

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ESCAPE='\033['
+LIGHT_RED="${ESCAPE}1;31m"
+NC='\033[0m' # No Color
+
+logerr() {
+  if [[ -z ${VSCODE_TASK} && -z $JENKINS_URL && "$(uname)" == "Linux" ]]; then
+    echo -e "${LIGHT_RED}Error: $1${NC}"
+  else
+    echo "Error: $1"
+  fi 
+}
+
+export -f logerr
